@@ -1,7 +1,7 @@
 # Cosmic Duel of Light and Shadow - Part 3 Implementation
 
 ## Project Overview
-This is a student-led anime project website featuring the "Cosmic Duel of Light and Shadow" anime concept. The website includes interactive elements, SEO optimization, and comprehensive form functionality.
+This is my anime project website featuring the "Cosmic Duel of Light and Shadow" anime concept. The website includes interactive elements, SEO optimization, and comprehensive form functionality.
 
 ## Files Structure
 - `index.html` - Homepage with project proposal
@@ -39,15 +39,15 @@ This is a student-led anime project website featuring the "Cosmic Duel of Light 
 - Enhanced form controls and user experience
 
 ## Features Implemented
-- ✅ Interactive Gallery Lightbox
-- ✅ Google Maps Integration
-- ✅ Search Functionality
-- ✅ Form Validation
-- ✅ SEO Optimization
-- ✅ Responsive Design
-- ✅ Dynamic Content
-- ✅ Cost Calculation
-- ✅ Error Handling
+-  Interactive Gallery Lightbox
+-  Google Maps Integration
+-  Search Functionality
+-  Form Validation
+-  SEO Optimization
+-  Responsive Design
+-  Dynamic Content
+-  Cost Calculation
+-  Error Handling
 
 ## Technologies Used
 - HTML5
@@ -57,7 +57,7 @@ This is a student-led anime project website featuring the "Cosmic Duel of Light 
 - Responsive Design
 
 ## Student Information
-This project was created by a student passionate about anime, art, and storytelling. The project demonstrates web development skills while showcasing creative work.
+This project is created by me a  passionate student about anime, art, and storytelling. The project demonstrates web development skills while showcasing creative work.
 
 ---
-*Student Project - Part 3 Implementation Complete*
+* Project - Part 3 Implementation Complete*
