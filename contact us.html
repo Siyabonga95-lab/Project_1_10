@@ -1,13 +1,69 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact Us — Cosmic Duel</title>
-</head>
-     <link rel="stylesheet" href="style.css">
+    <title>Contact Us — Cosmic Duel of Light and Shadow | Get In Touch</title>
+    <meta name="description" content="Contact the creator of Cosmic Duel anime project. Based in Bloemfontein, South Africa. Email, social media, and collaboration enquiries welcome.">
+    <meta name="keywords"content="contact anime creator, cosmic duel contact, South Africa anime, Bloemfontein, anime collaboration, student project contact">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <style>
+        #map {
+            height: 400px;
+            width: 100%;
+            margin: 20px 0;
+            border-radius: 8px;
+            z-index: 1;
+        }
+        
+        .map-container {
+            position: relative;
+        }
+        
+        .map-info {
+            background: #333;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 15px;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .error-message {
+            color: #ff4d4d;
+            font-size: 14px;
+            margin-top: 5px;
+            display: none;
+        }
+        
+        #formMessage {
+            padding: 15px;
+            border-radius: 5px;
+            margin: 20px 0;
+            display: none;
+        }
 
+        .leaflet-container {
+            background: #1a1a1a;
+        }
+
+        .map-fallback {
+            background: #333;
+            color: white;
+            padding: 40px;
+            text-align: center;
+            border-radius: 8px;
+            height: 400px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+    </style>
+</head>
 <body>
     <header>
         <nav>
@@ -16,6 +72,7 @@
                 <li><a href="about us.html">About Us</a></li>
                 <li><a href="contact us.html">Contact Us</a></li>
                 <li><a href="service.html">Services</a></li>
+                <li><a href="enquiry.html">Enquire</a></li>
             </ul>
         </nav>
     </header>
@@ -24,28 +81,33 @@
         <header>
             <h1>Contact Me</h1>
         </header>
-        <p>
-            If you’re interested in supporting my project, sharing ideas, 
-            or even if you are an anime company looking for new talent, 
-            feel free to reach out using the details below:
-        </p>
+        
+        <div class="map-info">
+            <h2>Location</h2>
+            <p>I am based in Bloemfontein, South Africa, but this project is open for anime fans and companies worldwide.</p>
+        </div>
+        
+        <!-- Interactive Map -->
+        <div class="map-container">
+            <div id="map">
+                <div class="map-fallback">
+                    <h3>📍 Bloemfontein, South Africa</h3>
+                    <p>Based in the heart of South Africa</p>
+                    <p>Open to worldwide collaborations</p>
+                    <p><em>Loading interactive map...</em></p>
+                </div>
+            </div>
+        </div>
+        
+        <h2>Contact Details</h2>
         <ul>
-            <li>Email: <a href="mailto:Siya's@Otakuduel.com">Siya's@Otakuduel.com</a></li>
+            <li>Email: <a href="mailto:Siyas@Otakuduel.com">Siyas@Otakuduel.com</a></li>
             <li>Instagram: @Otaku_duel_anime</li>
             <li>Discord: Otaku Duel Hub</li>
             <li>Twitter/X: @OtakuDuelWorld</li>
             <li>TikTok: @CosmicDuel_Anime</li>
             <li>YouTube: Cosmic Duel Anime Channel</li>
         </ul>
-
-        <h2>Location</h2>
-        <p>
-            I am based in Bloemfontein, South Africa, but this project is open 
-            for anime fans and companies worldwide. Whether you are in Tokyo, Los Angeles, 
-            Lagos, or Cape Town, I want to connect and share ideas that show 
-            the beauty of anime.
-        </p>
-         <img src="Wallpaper/Screenshot 2025-08-27 155301.png" alt="Map showing Bloemfontein, South Africa" width="300"/>Google Maps Image
 
         <h2>Reasons to Contact</h2>
         <ul>
@@ -55,22 +117,232 @@
             <li>For joining weekly showcases or online events</li>
         </ul>
 
-        <form action="#" method="post">
-            <label for="name">Your Name:</label><br>
-            <input type="text" id="name" name="name"><br><br>
-
-            <label for="email">Your Email:</label><br>
-            <input type="email" id="email" name="email"><br><br>
-
-            <label for="message">Your Message:</label><br>
-            <textarea id="message" name="message" rows="4" cols="40"></textarea><br><br>
-
-            <input type="submit" value="Send Message" >
+        <!-- Enhanced Contact Form -->
+        <h2>Send Me a Message</h2>
+        <form id="contactForm" action="#" method="post">
+            <div class="form-group">
+                <label for="name">Your Name:*</label>
+                <input type="text" id="name" name="name" required>
+                <span class="error-message" id="nameError"></span>
+            </div>
+            
+            <div class="form-group">
+                <label for="email">Your Email:*</label>
+                <input type="email" id="email" name="email" required>
+                <span class="error-message" id="emailError"></span>
+            </div>
+            
+            <div class="form-group">
+                <label for="subject">Message Type:</label>
+                <select id="subject" name="subject">
+                    <option value="general">General Inquiry</option>
+                    <option value="collaboration">Collaboration</option>
+                    <option value="feedback">Feedback</option>
+                    <option value="support">Project Support</option>
+                </select>
+            </div>
+            
+            <div class="form-group">
+                <label for="message">Your Message:*</label>
+                <textarea id="message" name="message" rows="4" cols="40" required></textarea>
+                <span class="error-message" id="messageError"></span>
+            </div>
+            
+            <div class="form-group">
+                <input type="checkbox" id="newsletter" name="newsletter">
+                <label for="newsletter">Subscribe to project updates</label>
+            </div>
+            
+            <button type="submit" id="submitBtn">Send Message</button>
+            <div id="formMessage"></div>
         </form>
     </article>
 
     <footer>
         Otaku Nexus &copy; 2025. All rights reserved. | Student Project from South Africa
     </footer>
+
+    <!-- Leaflet JS (OpenStreetMap - No API key needed) -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script>
+        // Initialize map when page loads
+        document.addEventListener('DOMContentLoaded', function() {
+            try {
+                // Bloemfontein coordinates
+                const bloemfontein = [-29.0852, 26.1596];
+                
+                // Create map
+                const map = L.map('map').setView(bloemfontein, 13);
+                
+                // Add OpenStreetMap tiles
+                L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                    attribution: '© OpenStreetMap contributors',
+                    maxZoom: 18
+                }).addTo(map);
+                
+                // Add custom dark style
+                const darkLayer = L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
+                    attribution: '© OpenStreetMap, © CartoDB',
+                    maxZoom: 18
+                }).addTo(map);
+                
+                // Add marker
+                const marker = L.marker(bloemfontein).addTo(map)
+                    .bindPopup(`
+                        <div style="color: #333;">
+                            <h3 style="margin: 0 0 10px 0; color: #ff0000;">🌌 Cosmic Duel Project</h3>
+                            <p style="margin: 5px 0;"><strong>Location:</strong> Bloemfontein, SA</p>
+                            <p style="margin: 5px 0;"><strong>Status:</strong> Open to collaborations</p>
+                            <p style="margin: 5px 0;"><strong>Focus:</strong> Anime & Creative Projects</p>
+                        </div>
+                    `)
+                    .openPopup();
+                
+                // Add circle around location
+                L.circle(bloemfontein, {
+                    color: '#ff0000',
+                    fillColor: '#ff0000',
+                    fillOpacity: 0.1,
+                    radius: 1000
+                }).addTo(map);
+                
+                console.log('Map loaded successfully!');
+                
+            } catch (error) {
+                console.log('Map error:', error);
+                // Show fallback content
+                document.getElementById('map').innerHTML = `
+                    <div class="map-fallback">
+                        <h3>📍 Bloemfontein, South Africa</h3>
+                        <p><strong>Project Base Location</strong></p>
+                        <p>Coordinates: -29.0852° S, 26.1596° E</p>
+                        <p>Free State Province, South Africa</p>
+                        <p style="margin-top: 20px; color: #ff4d4d;">
+                            <em>Interactive map unavailable - Location confirmed: Bloemfontein</em>
+                        </p>
+                    </div>
+                `;
+            }
+        });
+
+        // Add some interactive effects to the map container
+        document.addEventListener('DOMContentLoaded', function() {
+            const mapElement = document.getElementById('map');
+            if (mapElement) {
+                mapElement.addEventListener('mouseenter', function() {
+                    this.style.transform = 'scale(1.01)';
+                    this.style.transition = 'transform 0.3s ease';
+                });
+                
+                mapElement.addEventListener('mouseleave', function() {
+                    this.style.transform = 'scale(1)';
+                });
+            }
+        });
+    </script>
+    
+    <!-- Form Validation -->
+    <script>
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Reset previous errors
+            clearErrors();
+            
+            // Get form values
+            const name = document.getElementById('name').value.trim();
+            const email = document.getElementById('email').value.trim();
+            const message = document.getElementById('message').value.trim();
+            
+            let isValid = true;
+            
+            // Name validation
+            if (name === '') {
+                showError('nameError', 'Please enter your name');
+                isValid = false;
+            } else if (name.length < 2) {
+                showError('nameError', 'Name must be at least 2 characters');
+                isValid = false;
+            }
+            
+            // Email validation
+            if (email === '') {
+                showError('emailError', 'Please enter your email');
+                isValid = false;
+            } else if (!isValidEmail(email)) {
+                showError('emailError', 'Please enter a valid email address');
+                isValid = false;
+            }
+            
+            // Message validation
+            if (message === '') {
+                showError('messageError', 'Please enter your message');
+                isValid = false;
+            } else if (message.length < 10) {
+                showError('messageError', 'Message must be at least 10 characters');
+                isValid = false;
+            }
+            
+            if (isValid) {
+                // Simulate form submission
+                const submitBtn = document.getElementById('submitBtn');
+                const originalText = submitBtn.textContent;
+                submitBtn.textContent = 'Sending...';
+                submitBtn.disabled = true;
+                
+                setTimeout(() => {
+                    document.getElementById('formMessage').innerHTML = `
+                        <div style="background: #4CAF50; color: white; padding: 10px; border-radius: 5px; margin-top: 10px;">
+                            <h4>✅ Message Sent Successfully!</h4>
+                            <p>Thank you <strong>${name}</strong>! Your message has been received.</p>
+                            <p>I'll get back to you at <strong>${email}</strong> within 24 hours.</p>
+                        </div>
+                    `;
+                    document.getElementById('contactForm').reset();
+                    submitBtn.textContent = originalText;
+                    submitBtn.disabled = false;
+
+                    // Scroll to show the success message
+                    document.getElementById('formMessage').scrollIntoView({ 
+                        behavior: 'smooth', 
+                        block: 'center' 
+                    });
+                }, 2000);
+            }
+        });
+        
+        function showError(elementId, message) {
+            document.getElementById(elementId).textContent = message;
+            document.getElementById(elementId).style.display = 'block';
+        }
+        
+        function clearErrors() {
+            const errors = document.querySelectorAll('.error-message');
+            errors.forEach(error => {
+                error.textContent = '';
+                error.style.display = 'none';
+            });
+        }
+        
+        function isValidEmail(email) {
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            return emailRegex.test(email);
+        }
+
+        // Add input animations
+        document.addEventListener('DOMContentLoaded', function() {
+            const inputs = document.querySelectorAll('input, textarea, select');
+            inputs.forEach(input => {
+                input.addEventListener('focus', function() {
+                    this.style.transform = 'scale(1.02)';
+                    this.style.transition = 'transform 0.2s ease';
+                });
+                
+                input.addEventListener('blur', function() {
+                    this.style.transform = 'scale(1)';
+                });
+            });
+        });
+    </script>
 </body>
 </html>

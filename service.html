@@ -3,21 +3,71 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Services — Cosmic Duel</title>
+  <title>Services — Cosmic Duel of Light and Shadow | Anime Creation Services</title>
+  <meta name="description" content="Professional anime services including character design, script writing, music production, and animation. Student-led creative services for anime projects.">
+  <meta name="keywords" content="anime services, character design, script writing, music production, animation services, student anime creator, cosmic duel services">
+  <link rel="stylesheet" href="style.css">
+  <style>
+        .search-container {
+            margin: 20px 0;
+            text-align: center;
+        }
+        
+        #serviceSearch {
+            padding: 10px;
+            width: 300px;
+            border-radius: 5px;
+            border: 1px solid #555;
+            background: #333;
+            color: white;
+        }
+        
+        .service-item {
+            background: #2a2a2a;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 8px;
+            transition: transform 0.3s;
+        }
+        
+        .service-item:hover {
+            transform: translateY(-5px);
+        }
+        
+        .service-item.hidden {
+            display: none;
+        }
+        
+        .no-results {
+            text-align: center;
+            padding: 20px;
+            color: #ff4d4d;
+        }
+        
+        .service-tags {
+            margin-top: 10px;
+        }
+        
+        .service-tag {
+            display: inline-block;
+            background: #ff0000;
+            color: white;
+            padding: 3px 8px;
+            border-radius: 12px;
+            font-size: 12px;
+            margin-right: 5px;
+        }
+    </style>
 </head>
-      <link rel="stylesheet" href="style.css">
-
 <body>
   <header>
-    <h1>ref</h1>
-    <p>https://Wallpaperaccess.com</p>
-    <img src="Wallpaper/5546677.jpg" alt="Anime Logo" width="300" />
     <nav>
       <ul>
         <li><a href="index.html">Home</a></li>
         <li><a href="about us.html">About Us</a></li>
         <li><a href="contact us.html">Contact Us</a></li>
         <li><a href="service.html">Services</a></li>
+        <li><a href="enquiry.html">Enquire</a></li>
       </ul>
     </nav>
   </header>
@@ -26,50 +76,103 @@
     <header>
       <h1>Our Services</h1>
     </header>
+    
+    <!-- Search Functionality -->
+    <div class="search-container">
+        <input type="text" id="serviceSearch" placeholder="Search services...">
+    </div>
+    
     <p>
       As a student with a strong passion for anime, art, and storytelling, I started this project
       not only as a creative outlet but also as a way to support both established anime studios
       and small businesses trying to make their mark. 
     </p>
+    
     <p>
       Inspired by the depth and imagination of anime like <strong>Bleach</strong>, I want to
       provide creative contributions that show how students can stand alongside professionals
       in shaping the future of anime culture. 
     </p>
+
+    <section id="servicesContainer">
+        <div class="service-item" data-tags="design character concept art">
+            <h3>Concept & Character Design</h3>
+            <p>
+                From sketches to polished designs, I create original characters and settings that can
+                be used in manga, anime pitches, or branding projects.
+            </p>
+            <div class="service-tags">
+                <span class="service-tag">Design</span>
+                <span class="service-tag">Art</span>
+                <span class="service-tag">Characters</span>
+            </div>
+        </div>
+        
+        <div class="service-item" data-tags="writing script story development">
+            <h3>Script & Story Development</h3>
+            <p>
+                Writing scripts and world-building has always been my passion. I help craft plots,
+                dialogue, and lore that can fit into anime projects or promotional content.
+            </p>
+            <div class="service-tags">
+                <span class="service-tag">Writing</span>
+                <span class="service-tag">Story</span>
+                <span class="service-tag">Script</span>
+            </div>
+        </div>
+        
+        <div class="service-item" data-tags="music sound audio composition">
+            <h3>Music & Mood Concepts</h3>
+            <p>
+                I experiment with soundtracks and background music ideas that can enhance mood,
+                tone, and atmosphere for anime-style projects or small-scale animations.
+            </p>
+            <div class="service-tags">
+                <span class="service-tag">Music</span>
+                <span class="service-tag">Audio</span>
+                <span class="service-tag">Composition</span>
+            </div>
+        </div>
+        
+        <div class="service-item" data-tags="collaboration platform students community">
+            <h3>Student Collaboration Platform</h3>
+            <p>
+                Even though I work alone, this project is a bridge. I invite other students and young
+                creators to share ideas that companies might adapt, opening the door for new voices
+                in the anime industry.
+            </p>
+            <div class="service-tags">
+                <span class="service-tag">Collaboration</span>
+                <span class="service-tag">Community</span>
+                <span class="service-tag">Students</span>
+            </div>
+        </div>
+        
+        <div class="service-item" data-tags="animation motion graphics">
+            <h3>Basic Animation Services</h3>
+            <p>Creating simple animations and motion graphics for promotional content or short scenes using digital tools and techniques.</p>
+            <div class="service-tags">
+                <span class="service-tag">Animation</span>
+                <span class="service-tag">Motion</span>
+                <span class="service-tag">Graphics</span>
+            </div>
+        </div>
+        
+        <div class="service-item" data-tags="consultation feedback review">
+            <h3>Creative Consultation</h3>
+            <p>Providing feedback and guidance on anime projects, character development, and story structure based on industry knowledge and creative insight.</p>
+            <div class="service-tags">
+                <span class="service-tag">Consultation</span>
+                <span class="service-tag">Feedback</span>
+                <span class="service-tag">Review</span>
+            </div>
+        </div>
+    </section>
+    
+    <div id="noResults" class="no-results hidden">
+        No services found matching your search. Try different keywords.
+    </div>
   </article>
-
-  <section>
-    <h2>What I Offer</h2>
-    <p>
-      The Cosmic Duel Project is built to support anime companies, independent creators,
-      and businesses with fresh and unique ideas. Here’s how I can bring value:
-    </p>
-
-    <h3>Concept & Character Design</h3>
-    <p>
-      From sketches to polished designs, I create original characters and settings that can
-      be used in manga, anime pitches, or branding projects.
-    </p>
-
-    <h3>Script & Story Development</h3>
-    <p>
-      Writing scripts and world-building has always been my passion. I help craft plots,
-      dialogue, and lore that can fit into anime projects or promotional content.
-    </p>
-
-    <h3>Music & Mood Concepts</h3>
-    <p>
-      I experiment with soundtracks and background music ideas that can enhance mood,
-      tone, and atmosphere for anime-style projects or small-scale animations.
-    </p>
-
-    <h3>Student Collaboration Platform</h3>
-    <p>
-      Even though I work alone, this project is a bridge. I invite other students and young
-      creators to share ideas that companies might adapt, opening the door for new voices
-      in the anime industry.
-    </p>
-  </section>
 
   <section>
     <h2>Who This Is For</h2>
@@ -100,5 +203,50 @@
   <footer>
     Otaku Nexus &copy; 2025. All rights reserved.
   </footer>
+
+  <script>
+        // Search functionality
+        document.getElementById('serviceSearch').addEventListener('input', function(e) {
+            const searchTerm = e.target.value.toLowerCase();
+            const serviceItems = document.querySelectorAll('.service-item');
+            let visibleCount = 0;
+            
+            serviceItems.forEach(item => {
+                const tags = item.getAttribute('data-tags').toLowerCase();
+                const title = item.querySelector('h3').textContent.toLowerCase();
+                const content = item.querySelector('p').textContent.toLowerCase();
+                
+                if (tags.includes(searchTerm) || title.includes(searchTerm) || content.includes(searchTerm)) {
+                    item.classList.remove('hidden');
+                    visibleCount++;
+                } else {
+                    item.classList.add('hidden');
+                }
+            });
+            
+            // Show/hide no results message
+            const noResults = document.getElementById('noResults');
+            if (visibleCount === 0 && searchTerm !== '') {
+                noResults.classList.remove('hidden');
+            } else {
+                noResults.classList.add('hidden');
+            }
+        });
+        
+        // Add animation to service items on load
+        document.addEventListener('DOMContentLoaded', function() {
+            const serviceItems = document.querySelectorAll('.service-item');
+            serviceItems.forEach((item, index) => {
+                item.style.opacity = '0';
+                item.style.transform = 'translateY(20px)';
+                
+                setTimeout(() => {
+                    item.style.transition = 'opacity 0.5s, transform 0.5s';
+                    item.style.opacity = '1';
+                    item.style.transform = 'translateY(0)';
+                }, index * 100);
+            });
+        });
+    </script>
 </body>
 </html>

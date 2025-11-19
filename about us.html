@@ -1,30 +1,92 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About Us — Cosmic Duel</title>
+    <title>About Us — Cosmic Duel of Light and Shadow | Anime Project Team</title>
+    <meta name="description" content="Learn about the student creator behind Cosmic Duel of Light and Shadow anime project. Passionate about anime, art, and storytelling inspired by Bleach.">
+    <meta name="keywords" content="anime creator, student project, cosmic duel about, anime inspiration, Bleach inspired, South African anime">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Lightbox Styles */
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin: 20px 0;
+        }
+        
+        .gallery-item {
+            cursor: pointer;
+            transition: transform 0.3s;
+        }
+        
+        .gallery-item:hover {
+            transform: scale(1.05);
+        }
+        
+        .gallery-item img {
+            width: 100%;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 8px;
+        }
+        
+        .lightbox {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.9);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .lightbox-content {
+            max-width: 90%;
+            max-height: 90%;
+        }
+        
+        .lightbox-close {
+            position: absolute;
+            top: 20px;
+            right: 30px;
+            color: white;
+            font-size: 40px;
+            cursor: pointer;
+        }
+        
+        .lightbox-nav {
+            position: absolute;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            padding: 0 20px;
+            box-sizing: border-box;
+        }
+        
+        .lightbox-prev, .lightbox-next {
+            color: white;
+            font-size: 40px;
+            cursor: pointer;
+            background: rgba(0, 0, 0, 0.5);
+            padding: 10px;
+            border-radius: 50%;
+        }
+    </style>
 </head>
-      <link rel="stylesheet" href="style.css">
-
 <body>
     <header>
-        <h1>ref</h1>
-        <p>https://Wallpaperaccess.com</p>
-        <img src="Wallpaper/2732555.jpg" alt="Anime Logo" width="300" />
-        <img src="Wallpaper/3953555.jpg" alt="Anime Logo" width="100" />
-        <img src="Wallpaper/4703280.jpg" alt="Anime Logo" width="300"  />
-        <img src="Wallpaper/5546645.jpg" alt="Anime Logo" width="300" />
-        <img src="Wallpaper/5546677.jpg" alt="Anime Logo" width="300" />
-        <img src="Wallpaper/5546686.png" alt="Anime Logo" width="300" />
-         <img src="Wallpaper/3953591.jpg" alt="Anime Logo" width="300" />
         <nav>
             <ul>
                 <li><a href="index.html">Home</a></li>
                 <li><a href="about us.html">About Us</a></li>
                 <li><a href="contact us.html">Contact Us</a></li>
                 <li><a href="service.html">Services</a></li>
+                <li><a href="enquiry.html">Enquire</a></li>
             </ul>
         </nav>
     </header>
@@ -33,23 +95,62 @@
         <header>
             <h1>About Us</h1>
         </header>
-        <p>
-            I am a college student who has a passion for anime, art, and storytelling. 
+        
+        <p>I am a college student who has a passion for anime, art, and storytelling. 
             I bring something different to the table — from animation and design 
             to writing scripts and composing music.
         </p>
+        
         <p>
             My main goal is to prove that with hard work and dedication, students 
             can produce something on the same level as professional creators. 
             I also hope this project will inspire others to start their own creative 
             journeys and collaborate across skills.
         </p>
+        
+        <!-- Interactive Gallery -->
+        <h2>Project Gallery</h2>
+        <div class="gallery">
+            <div class="gallery-item" onclick="openLightbox(0)">
+                <img src="Wallpaper/2732555.jpg" alt="Anime character concept art for Cosmic Duel of Light and Shadow" width="300">
+            </div>
+            <div class="gallery-item" onclick="openLightbox(1)">
+                <img src="Wallpaper/3953555.jpg" alt="Sci-fi landscape artwork for anime project" width="100">
+            </div>
+            <div class="gallery-item" onclick="openLightbox(2)">
+                <img src="Wallpaper/4703280.jpg" alt="Character design sketch for shadow protagonist" width="300">
+            </div>
+            <div class="gallery-item" onclick="openLightbox(3)">
+                <img src="Wallpaper/5546645.jpg" alt="Light and shadow cosmic battle scene" width="300">
+            </div>
+            <div class="gallery-item" onclick="openLightbox(4)">
+                <img src="Wallpaper/5546677.jpg" alt="Anime storyboard frame for episode 1" width="300">
+            </div>
+            <div class="gallery-item" onclick="openLightbox(5)">
+                <img src="Wallpaper/5546686.png" alt="Character lineup for Cosmic Duel anime" width="300">
+            </div>
+            <div class="gallery-item" onclick="openLightbox(6)">
+                <img src="Wallpaper/3953591.jpg" alt="Final battle concept art between light and shadow" width="300">
+            </div>
+        </div>
+        
+        <!-- Lightbox -->
+        <div id="lightbox" class="lightbox">
+            <span class="lightbox-close" onclick="closeLightbox()">&times;</span>
+            <div class="lightbox-nav">
+                <span class="lightbox-prev" onclick="changeImage(-1)">&#10094;</span>
+                <span class="lightbox-next" onclick="changeImage(1)">&#10095;</span>
+            </div>
+            <img class="lightbox-content" id="lightbox-img">
+        </div>
+        
         <p>
             I got my inspiration from <strong>Bleach</strong>, an anime that showed me how 
             powerful storytelling and imagination can be. This project is for all anime lovers 
             who want to see more creativity come to life, especially here in South Africa 
             where anime is still growing.
         </p>
+        
         <p>
             This is not a company team — just me, a student, trying to bring something 
             positive to the anime world and to give others a chance to be heard.
@@ -59,6 +160,46 @@
     <footer>
         Otaku Nexus &copy; 2025. All rights reserved.
     </footer>
-</body>
 
+    <script>
+        // Lightbox functionality
+        let currentImageIndex = 0;
+        const images = [
+            "Wallpaper/2732555.jpg",
+            "Wallpaper/3953555.jpg",
+            "Wallpaper/4703280.jpg",
+            "Wallpaper/5546645.jpg",
+            "Wallpaper/5546677.jpg",
+            "Wallpaper/5546686.png",
+            "Wallpaper/3953591.jpg"
+        ];
+        
+        function openLightbox(index) {
+            currentImageIndex = index;
+            document.getElementById('lightbox').style.display = 'flex';
+            document.getElementById('lightbox-img').src = images[currentImageIndex];
+        }
+        
+        function closeLightbox() {
+            document.getElementById('lightbox').style.display = 'none';
+        }
+        
+        function changeImage(direction) {
+            currentImageIndex += direction;
+            if (currentImageIndex >= images.length) {
+                currentImageIndex = 0;
+            } else if (currentImageIndex < 0) {
+                currentImageIndex = images.length - 1;
+            }
+            document.getElementById('lightbox-img').src = images[currentImageIndex];
+        }
+        
+        // Close lightbox when clicking outside the image
+        document.getElementById('lightbox').addEventListener('click', function(e) {
+            if (e.target !== document.getElementById('lightbox-img')) {
+                closeLightbox();
+            }
+        });
+    </script>
+</body>
 </html>

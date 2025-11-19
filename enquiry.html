@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project Enquiry — Cosmic Duel of Light and Shadow | Collaboration & Support</title>
+    <meta name="description" content="Enquire about collaborating with Cosmic Duel of Light and Shadow anime project. Support options, volunteer opportunities, and partnership enquiries.">
+    <meta name="keywords" content="anime collaboration, project support, volunteer anime, sponsorship, cosmic duel enquiry, anime partnership">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .enquiry-form {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        
+        input, select, textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #555;
+            border-radius: 5px;
+            background: #333;
+            color: white;
+            box-sizing: border-box;
+        }
+        
+        input:focus, select:focus, textarea:focus {
+            outline: none;
+            border-color: #ff0000;
+        }
+        
+        .error-message {
+            color: #ff4d4d;
+            font-size: 14px;
+            margin-top: 5px;
+            display: none;
+        }
+        
+        .form-row {
+            display: flex;
+            gap: 15px;
+        }
+        
+        .form-row .form-group {
+            flex: 1;
+        }
+        
+        .service-options {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 10px;
+            margin: 10px 0;
+        }
+        
+        .service-option {
+            background: #2a2a2a;
+            padding: 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        
+        .service-option.selected {
+            background: #ff0000;
+        }
+        
+        .service-option input {
+            width: auto;
+            margin-right: 8px;
+        }
+        
+        .budget-slider {
+            margin: 15px 0;
+        }
+        
+        .budget-value {
+            text-align: center;
+            font-weight: bold;
+            color: #ff4d4d;
+        }
+        
+        #responseMessage {
+            padding: 15px;
+            border-radius: 5px;
+            margin: 20px 0;
+            display: none;
+        }
+        
+        .success {
+            background: #4CAF50;
+            color: white;
+        }
+        
+        .error {
+            background: #f44336;
+            color: white;
+        }
+        
+        .calculation-result {
+            background: #333;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 15px 0;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about us.html">About Us</a></li>
+                <li><a href="contact us.html">Contact Us</a></li>
+                <li><a href="service.html">Services</a></li>
+                <li><a href="enquiry.html">Enquire</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <article>
+        <header>
+            <h1>Project Enquiry</h1>
+            <p>Interested in collaborating, volunteering, or supporting the Cosmic Duel project? Fill out the form below and I'll get back to you with details about availability, costs, and next steps.</p>
+        </header>
+
+        <form id="enquiryForm" class="enquiry-form">
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="firstName">First Name *</label>
+                    <input type="text" id="firstName" name="firstName" required>
+                    <span class="error-message" id="firstNameError"></span>
+                </div>
+                
+                <div class="form-group">
+                    <label for="lastName">Last Name *</label>
+                    <input type="text" id="lastName" name="lastName" required>
+                    <span class="error-message" id="lastNameError"></span>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="email">Email Address *</label>
+                <input type="email" id="email" name="email" required>
+                <span class="error-message" id="emailError"></span>
+            </div>
+
+            <div class="form-group">
+                <label for="phone">Phone Number</label>
+                <input type="tel" id="phone" name="phone" pattern="[0-9+\-\s()]{10,}">
+                <span class="error-message" id="phoneError"></span>
+            </div>
+
+            <div class="form-group">
+                <label for="enquiryType">Enquiry Type *</label>
+                <select id="enquiryType" name="enquiryType" required>
+                    <option value="">Select an option</option>
+                    <option value="collaboration">Creative Collaboration</option>
+                    <option value="volunteer">Volunteer Opportunity</option>
+                    <option value="sponsorship">Project Sponsorship</option>
+                    <option value="service">Service Request</option>
+                    <option value="other">Other</option>
+                </select>
+                <span class="error-message" id="enquiryTypeError"></span>
+            </div>
+
+            <div class="form-group">
+                <label>Services Interested In</label>
+                <div class="service-options">
+                    <label class="service-option">
+                        <input type="checkbox" name="services" value="character-design"> Character Design
+                    </label>
+                    <label class="service-option">
+                        <input type="checkbox" name="services" value="script-writing"> Script Writing
+                    </label>
+                    <label class="service-option">
+                        <input type="checkbox" name="services" value="music-production"> Music Production
+                    </label>
+                    <label class="service-option">
+                        <input type="checkbox" name="services" value="animation"> Animation
+                    </label>
+                    <label class="service-option">
+                        <input type="checkbox" name="services" value="consultation"> Creative Consultation
+                    </label>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="budget">Estimated Budget (ZAR)</label>
+                <div class="budget-slider">
+                    <input type="range" id="budget" name="budget" min="0" max="100000" step="1000" value="0">
+                    <div class="budget-value">R <span id="budgetValue">0</span></div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="timeline">Project Timeline</label>
+                <select id="timeline" name="timeline">
+                    <option value="">Select timeline</option>
+                    <option value="urgent">Urgent (1-2 weeks)</option>
+                    <option value="short">Short term (1 month)</option>
+                    <option value="medium">Medium term (1-3 months)</option>
+                    <option value="long">Long term (3+ months)</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="message">Project Details *</label>
+                <textarea id="message" name="message" rows="6" placeholder="Please describe your project, collaboration idea, or what you're looking for..." required></textarea>
+                <span class="error-message" id="messageError"></span>
+            </div>
+
+            <div class="form-group">
+                <label for="reference">How did you hear about us?</label>
+                <input type="text" id="reference" name="reference" placeholder="Social media, friend, search engine, etc.">
+            </div>
+
+            <div class="calculation-result" id="costEstimate">
+                <h3>Estimated Cost Breakdown</h3>
+                <div id="estimateDetails"></div>
+            </div>
+
+            <button type="submit" id="submitBtn">Submit Enquiry</button>
+            
+            <div id="responseMessage"></div>
+        </form>
+    </article>
+
+    <footer>
+        Otaku Nexus &copy; 2025. All rights reserved. | Student Anime Project
+    </footer>
+
+    <script>
+        // Form validation and functionality
+        document.getElementById('enquiryForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            if (validateForm()) {
+                processEnquiry();
+            }
+        });
+
+        // Budget slider update
+        document.getElementById('budget').addEventListener('input', function() {
+            document.getElementById('budgetValue').textContent = 
+                parseInt(this.value).toLocaleString();
+            updateCostEstimate();
+        });
+
+        // Service option styling
+        document.querySelectorAll('.service-option').forEach(option => {
+            option.addEventListener('click', function() {
+                const checkbox = this.querySelector('input');
+                checkbox.checked = !checkbox.checked;
+                this.classList.toggle('selected', checkbox.checked);
+                updateCostEstimate();
+            });
+        });
+
+        // Enquiry type change
+        document.getElementById('enquiryType').addEventListener('change', updateCostEstimate);
+
+        function validateForm() {
+            let isValid = true;
+            clearErrors();
+
+            // First name validation
+            const firstName = document.getElementById('firstName').value.trim();
+            if (firstName === '') {
+                showError('firstNameError', 'First name is required');
+                isValid = false;
+            }
+
+            // Last name validation
+            const lastName = document.getElementById('lastName').value.trim();
+            if (lastName === '') {
+                showError('lastNameError', 'Last name is required');
+                isValid = false;
+            }
+
+            // Email validation
+            const email = document.getElementById('email').value.trim();
+            if (email === '') {
+                showError('emailError', 'Email is required');
+                isValid = false;
+            } else if (!isValidEmail(email)) {
+                showError('emailError', 'Please enter a valid email address');
+                isValid = false;
+            }
+
+            // Phone validation (if provided)
+            const phone = document.getElementById('phone').value.trim();
+            if (phone !== '' && !isValidPhone(phone)) {
+                showError('phoneError', 'Please enter a valid phone number');
+                isValid = false;
+            }
+
+            // Enquiry type validation
+            const enquiryType = document.getElementById('enquiryType').value;
+            if (enquiryType === '') {
+                showError('enquiryTypeError', 'Please select an enquiry type');
+                isValid = false;
+            }
+
+            // Message validation
+            const message = document.getElementById('message').value.trim();
+            if (message === '') {
+                showError('messageError', 'Please provide project details');
+                isValid = false;
+            } else if (message.length < 20) {
+                showError('messageError', 'Please provide more detailed information (at least 20 characters)');
+                isValid = false;
+            }
+
+            return isValid;
+        }
+
+        function updateCostEstimate() {
+            const budget = parseInt(document.getElementById('budget').value);
+            const enquiryType = document.getElementById('enquiryType').value;
+            const selectedServices = Array.from(document.querySelectorAll('input[name="services"]:checked'))
+                .map(cb => cb.value);
+            
+            let baseCost = 0;
+            let serviceDetails = [];
+            
+            // Calculate base cost based on enquiry type
+            switch(enquiryType) {
+                case 'collaboration':
+                    baseCost = 5000;
+                    serviceDetails.push('Collaboration projects start at R5,000');
+                    break;
+                case 'volunteer':
+                    baseCost = 0;
+                    serviceDetails.push('Volunteer opportunities are free');
+                    break;
+                case 'sponsorship':
+                    baseCost = 10000;
+                    serviceDetails.push('Sponsorship packages start at R10,000');
+                    break;
+                case 'service':
+                    baseCost = 3000;
+                    serviceDetails.push('Service requests start at R3,000');
+                    break;
+                default:
+                    baseCost = 0;
+            }
+            
+            // Add service costs
+            selectedServices.forEach(service => {
+                switch(service) {
+                    case 'character-design':
+                        baseCost += 2000;
+                        serviceDetails.push('Character Design: R2,000');
+                        break;
+                    case 'script-writing':
+                        baseCost += 2500;
+                        serviceDetails.push('Script Writing: R2,500');
+                        break;
+                    case 'music-production':
+                        baseCost += 3000;
+                        serviceDetails.push('Music Production: R3,000');
+                        break;
+                    case 'animation':
+                        baseCost += 5000;
+                        serviceDetails.push('Animation: R5,000');
+                        break;
+                    case 'consultation':
+                        baseCost += 1000;
+                        serviceDetails.push('Consultation: R1,000 per session');
+                        break;
+                }
+            });
+            
+            const estimateElement = document.getElementById('costEstimate');
+            const detailsElement = document.getElementById('estimateDetails');
+            
+            if (enquiryType && (selectedServices.length > 0 || enquiryType !== 'volunteer')) {
+                detailsElement.innerHTML = `
+                    <p><strong>Estimated Total: R${baseCost.toLocaleString()}</strong></p>
+                    <ul>
+                        ${serviceDetails.map(detail => `<li>${detail}</li>`).join('')}
+                    </ul>
+                    ${budget > 0 ? `<p>Your budget: R${budget.toLocaleString()}</p>` : ''}
+                    ${budget > 0 && budget < baseCost ? 
+                        '<p style="color: #ff4d4d;">Note: Your budget is below the estimated cost. We can discuss scaling options.</p>' : 
+                        budget >= baseCost ? 
+                        '<p style="color: #4CAF50;">Great! Your budget aligns with our estimates.</p>' : ''}
+                `;
+                estimateElement.style.display = 'block';
+            } else {
+                estimateElement.style.display = 'none';
+            }
+        }
+
+        function processEnquiry() {
+            const submitBtn = document.getElementById('submitBtn');
+            const originalText = submitBtn.textContent;
+            
+            // Show loading state
+            submitBtn.textContent = 'Processing...';
+            submitBtn.disabled = true;
+            
+            // Simulate processing delay
+            setTimeout(() => {
+                const enquiryType = document.getElementById('enquiryType').value;
+                const budget = parseInt(document.getElementById('budget').value);
+                
+                let responseMessage = '';
+                let responseClass = 'success';
+                
+                // Generate appropriate response based on enquiry type
+                switch(enquiryType) {
+                    case 'collaboration':
+                        responseMessage = `
+                            <h3>Collaboration Request Received!</h3>
+                            <p>Thank you for your interest in collaborating on the Cosmic Duel project. 
+                            I'll review your proposal and get back to you within 2-3 business days with 
+                            availability and potential collaboration structure.</p>
+                            <p><strong>Next Steps:</strong> I'll schedule a video call to discuss your ideas in detail.</p>
+                        `;
+                        break;
+                    case 'volunteer':
+                        responseMessage = `
+                            <h3>Volunteer Application Received!</h3>
+                            <p>Thank you for your interest in volunteering! I appreciate your willingness 
+                            to contribute to this student-led anime project. I'll contact you with available 
+                            volunteer positions and onboarding details.</p>
+                            <p><strong>Current Needs:</strong> Character artists, social media helpers, script reviewers</p>
+                        `;
+                        break;
+                    case 'sponsorship':
+                        responseMessage = `
+                            <h3>Sponsorship Enquiry Received!</h3>
+                            <p>Thank you for considering sponsorship of the Cosmic Duel project. 
+                            Your support will help bring this student anime to life. I'll prepare 
+                            a detailed sponsorship package and contact you within 3 business days.</p>
+                            ${budget > 0 ? `<p><strong>Budget Note:</strong> R${budget.toLocaleString()} noted for custom package creation.</p>` : ''}
+                        `;
+                        break;
+                    case 'service':
+                        responseMessage = `
+                            <h3>Service Request Received!</h3>
+                            <p>Thank you for your service request. I've reviewed your requirements 
+                            and will provide a detailed quote and timeline within 2 business days.</p>
+                            <p><strong>Availability:</strong> Most services have a 1-2 week lead time for new projects.</p>
+                        `;
+                        break;
+                    default:
+                        responseMessage = `
+                            <h3>Enquiry Received!</h3>
+                            <p>Thank you for your message. I'll review your enquiry and get back to you 
+                            within 2 business days with a personalized response.</p>
+                        `;
+                }
+                
+                // Show response
+                const responseElement = document.getElementById('responseMessage');
+                responseElement.innerHTML = responseMessage;
+                responseElement.className = 'success';
+                responseElement.style.display = 'block';
+                
+                // Reset form
+                document.getElementById('enquiryForm').reset();
+                document.getElementById('costEstimate').style.display = 'none';
+                document.querySelectorAll('.service-option').forEach(opt => {
+                    opt.classList.remove('selected');
+                });
+                
+                // Reset button
+                submitBtn.textContent = originalText;
+                submitBtn.disabled = false;
+                
+                // Scroll to response
+                responseElement.scrollIntoView({ behavior: 'smooth' });
+                
+            }, 2000);
+        }
+
+        function showError(elementId, message) {
+            document.getElementById(elementId).textContent = message;
+            document.getElementById(elementId).style.display = 'block';
+        }
+
+        function clearErrors() {
+            document.querySelectorAll('.error-message').forEach(error => {
+                error.textContent = '';
+                error.style.display = 'none';
+            });
+        }
+
+        function isValidEmail(email) {
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            return emailRegex.test(email);
+        }
+
+        function isValidPhone(phone) {
+            const phoneRegex = /^[0-9+\-\s()]{10,}$/;
+            return phoneRegex.test(phone);
+        }
+
+        // Initialize budget display
+        document.addEventListener('DOMContentLoaded', function() {
+            document.getElementById('budgetValue').textContent = '0';
+        });
+    </script>
+</body>
+</html>
